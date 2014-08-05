@@ -4,7 +4,6 @@
         ropemacs
         auto-complete
         yasnippet
-        python-pep8
         flycheck
         )
       )
@@ -34,9 +33,6 @@
 
 ;;yasnippet
 (require 'yasnippet)
-
-;;python-pep8
-(require 'python-pep8)
 
 ;; enable flycheck
 (require 'flycheck)
