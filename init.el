@@ -5,6 +5,8 @@
         auto-complete
         yasnippet
         flycheck
+        xcscope
+        xcscope+
         )
       )
 
@@ -45,6 +47,10 @@
 (add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-cp" 'flycheck-previous-error)))
 ;; Shortcut to select a different checker
 (add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-cs" 'flycheck-select-checker)))
+
+;; cscope
+(require 'xcscope)
+(require 'xcscope+)
 
 ;;Modify the backup files directory
 (setq backup-directory-alist '(("." . "/home/eelango/.saves")))
