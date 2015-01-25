@@ -7,6 +7,7 @@
         flycheck
         xcscope
         xcscope+
+        org-mode
         )
       )
 
@@ -14,7 +15,7 @@
 (load-file 
  (concat (file-name-as-directory user-emacs-directory) "getelget.el"))
 
-(add-to-list 'load-path "~/.emacs.d")
+;;(add-to-list 'load-path "~/.emacs.d")
 
 ;; Tab spacing related settings
 (setq-default indent-tabs-mode nil)
