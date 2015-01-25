@@ -15,12 +15,17 @@
 (load-file 
  (concat (file-name-as-directory user-emacs-directory) "getelget.el"))
 
-;;(add-to-list 'load-path "~/.emacs.d")
+;; Remove the line below if removing .emacs.d from loadpath doesn't cause any
+;; issues
+;; (add-to-list 'load-path "~/.emacs.d")
 
 ;; Tab spacing related settings
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default py-indent-offset 4)
+
+;; column-number-mode always on
+(setq column-number-mode t)
 
 ;;ropemacs
 (require 'pymacs)
@@ -80,7 +85,15 @@
   ;; If there is more than one, they won't work right.
  )
 
+;; set tramp default as ssh. Faster than default scp.
+(setq tramp-default-method "ssh")
 
+;; org-mode settings from org-mode manual
+; not needed when global-font-lock-mode is on
+(add-hook 'org-mode-hook 'turn-on-font-lock)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
 
 ;; Things that might be useful later.
 ;; (global-set-key [f10] 'flymake-goto-prev-error)
