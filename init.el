@@ -1,3 +1,4 @@
+;; Packages to include via el-get
 (setq el-get-packages
       '(el-get
         pymacs
@@ -7,6 +8,7 @@
         flycheck
         xcscope
         xcscope+
+        yaml-mode
         org-mode
         )
       )
@@ -14,6 +16,12 @@
 ;; getelget -- bootstrap el-get if necessary and load the specified packages
 (load-file 
  (concat (file-name-as-directory user-emacs-directory) "getelget.el"))
+
+;; set theme
+(load-theme 'deeper-blue)
+
+;; hide scroll bar
+(scroll-bar-mode -1)
 
 ;; Remove the line below if removing .emacs.d from loadpath doesn't cause any
 ;; issues
@@ -24,8 +32,21 @@
 (setq-default tab-width 4)
 (setq-default py-indent-offset 4)
 
+;; Enable extra keys in org-mode. This is to avoid using arrow keys in org-mode
+(setq org-use-extra-keys t)
+
 ;; column-number-mode always on
 (setq column-number-mode t)
+
+;; Better buffer switching using ido-mode
+(ido-mode t)
+
+;; Disable transient-mark-mode - Highlighting selection
+;; I'm used to transient-mark-mode. So having it enabled.
+;; (setq transient-mark-mode nil)
+
+;; Shortcut for rename-buffer
+(define-key global-map (kbd "M-n") 'rename-buffer)
 
 ;;ropemacs
 (require 'pymacs)
@@ -59,7 +80,7 @@
 (require 'xcscope+)
 
 ;;Modify the backup files directory
-(setq backup-directory-alist '(("." . "/home/eelango/.saves")))
+(setq backup-directory-alist '(("." . "~/.saves")))
 
 ;;There are a number of arcane details associated with how Emacs might
 ;;create your backup files. Should it rename the original and write out
@@ -89,18 +110,24 @@
 (setq tramp-default-method "ssh")
 
 ;; org-mode settings from org-mode manual
-; not needed when global-font-lock-mode is on
+;; not needed when global-font-lock-mode is on
 (add-hook 'org-mode-hook 'turn-on-font-lock)
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-;; Things that might be useful later.
-;; (global-set-key [f10] 'flymake-goto-prev-error)
-;; (global-set-key [f11] 'flymake-goto-next-error)
-
-;; ;; bind RET to py-newline-and-indent
-;; (add-hook 'python-mode-hook '(lambda ()
-;;                    (define-key python-mode-map "\C-m" 'newline-and-indent)))
+;; Disables arrow keys in emacs
+(global-unset-key (kbd "<left>"))
+(global-unset-key (kbd "<right>"))
+(global-unset-key (kbd "<up>"))
+(global-unset-key (kbd "<down>"))
+(global-unset-key (kbd "<C-left>"))
+(global-unset-key (kbd "<C-right>"))
+(global-unset-key (kbd "<C-up>"))
+(global-unset-key (kbd "<C-down>"))
+(global-unset-key (kbd "<M-left>"))
+(global-unset-key (kbd "<M-right>"))
+(global-unset-key (kbd "<M-up>"))
+(global-unset-key (kbd "<M-down>"))
 
 ;; (setq python-check-command "pylint")
