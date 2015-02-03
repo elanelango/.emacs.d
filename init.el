@@ -17,6 +17,11 @@
 (load-file 
  (concat (file-name-as-directory user-emacs-directory) "getelget.el"))
 
+;; Use separate file for customizations added by M-x customize
+(setq custom-file "~/.emacs.d/custom.el")
+;; load custom-file. Don't complain if the custom-file does not exist
+(load custom-file 'noerror)
+
 ;; set theme
 (load-theme 'deeper-blue)
 
@@ -93,18 +98,6 @@
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(safe-local-variable-values (quote ((require-final-newline . t) (whitespace-style face trailing lines-tail) (whitespace-line-column . 80)))))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
 
 ;; set tramp default as ssh. Faster than default scp.
 (setq tramp-default-method "ssh")
