@@ -45,7 +45,7 @@
             (add-to-list 'term-bind-key-alist '("C-c C-j" . term-line-mode))
             (add-to-list 'term-bind-key-alist '("C-c C-k" . term-char-mode))
             (add-to-list 'term-bind-key-alist '("C-c C-x" . term-send-C-x))
-            (add-to-list 'term-bind-key-alist '("C-c C-s" . term-send-C-s))))
+            (add-to-list 'term-bind-key-alist '("C-c C-s" . term-send-C-s))
             (add-to-list 'term-bind-key-alist '("C-c C-c" . term-send-C-c))))
 
 (defadvice term-handle-ansi-terminal-messages
