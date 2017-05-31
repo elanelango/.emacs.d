@@ -14,6 +14,7 @@
         elscreen
         highlight-indentation
         color-theme-zenburn
+        atom-dark-theme
         )
       )
 

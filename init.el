@@ -1,4 +1,4 @@
-(defconst user-init-dir
+ (defconst user-init-dir
   (cond ((boundp 'user-emacs-directory)
          user-emacs-directory)
         ((boundp 'user-init-directory)
@@ -17,3 +17,5 @@
 (load-user-file "term-stuff.el")
 (load-user-file "elscreen-stuff.el")
 (load-user-file "python-stuff.el")
+(load-user-file "perl-stuff.el")
+;; (load-user-file "ee-mu4e.el")

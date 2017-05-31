@@ -1,5 +1,12 @@
+;; load server if it's not running
+(load "server")
+(unless (server-running-p) (server-start))
+
 ;; hide scroll bar
-(scroll-bar-mode -1)
+(if (display-graphic-p)
+    (progn
+      ;; (tool-bar-mode -1)
+      (scroll-bar-mode -1)))
 
 ;; column-number-mode always on
 (setq column-number-mode t)
@@ -22,6 +29,10 @@
 ;;Modify the backup files directory
 (setq backup-directory-alist '(("." . "~/.saves")))
 
+;; Auto save directory
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 ;;There are a number of arcane details associated with how Emacs might
 ;;create your backup files. Should it rename the original and write out
 ;;the edited buffer? What if the original is linked?
@@ -35,18 +46,18 @@
   version-control t)
 
 ;; Disables arrow keys in emacs
-(global-unset-key (kbd "<left>"))
-(global-unset-key (kbd "<right>"))
-(global-unset-key (kbd "<up>"))
-(global-unset-key (kbd "<down>"))
-(global-unset-key (kbd "<C-left>"))
-(global-unset-key (kbd "<C-right>"))
-(global-unset-key (kbd "<C-up>"))
-(global-unset-key (kbd "<C-down>"))
-(global-unset-key (kbd "<M-left>"))
-(global-unset-key (kbd "<M-right>"))
-(global-unset-key (kbd "<M-up>"))
-(global-unset-key (kbd "<M-down>"))
+;; (global-unset-key (kbd "<left>"))
+;; (global-unset-key (kbd "<right>"))
+;; (global-unset-key (kbd "<up>"))
+;; (global-unset-key (kbd "<down>"))
+;; (global-unset-key (kbd "<C-left>"))
+;; (global-unset-key (kbd "<C-right>"))
+;; (global-unset-key (kbd "<C-up>"))
+;; (global-unset-key (kbd "<C-down>"))
+;; (global-unset-key (kbd "<M-left>"))
+;; (global-unset-key (kbd "<M-right>"))
+;; (global-unset-key (kbd "<M-up>"))
+;; (global-unset-key (kbd "<M-down>"))
 
 ;; set tramp default as ssh. Faster than default scp.
 (setq tramp-default-method "ssh")
@@ -65,3 +76,17 @@
 ;;   highlight-indentation-mode turn-on-highlight-indentation-mode)
 
 ;; (global-highlight-indentation-mode 1)
+
+
+(when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
+
+;; Save Tramp files also
+(setq desktop-files-not-to-save "^$")
+
+;; re-read stuff from disk
+(global-auto-revert-mode t)
+
+;; don't add newline to end
+(setq require-final-newline nil)
+(setq mode-require-final-newline nil)
+

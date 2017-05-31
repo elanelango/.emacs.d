@@ -1,8 +1,8 @@
 ;; Start elscreen
-(elscreen-start)
+;; (elscreen-start)
 
 ;; Name of the first elscreen
-(elscreen-screen-nickname "dev")
+;; (elscreen-screen-nickname "dev")
 
 ;; function that creates a elscreen, renames the screen, opens multiterm
 ;; ssh to remote server and opens a screen with the specified name in the
@@ -21,8 +21,8 @@
 ;; Open a bunch of elscreens with multiterms
 (defun init-multi-terms ()
   (interactive))
-  (open-remote-screen "picrite")
+  ;; (open-remote-screen "picrite")
   ;; (open-remote-screen "mainsh250"))
 
 ;; Run the init-multi-terms function on startup
-(add-hook 'emacs-startup-hook 'init-multi-terms)
+;; (add-hook 'emacs-startup-hook 'init-multi-terms)
